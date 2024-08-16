@@ -1,0 +1,5 @@
+*.yaml
+*.code-workspace
+project_3/
+.DS_Store
+ __pycache__/
