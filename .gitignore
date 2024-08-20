@@ -3,3 +3,6 @@
 project_3/
 .DS_Store
  __pycache__/
+
+ *.pem
+ *.txt
