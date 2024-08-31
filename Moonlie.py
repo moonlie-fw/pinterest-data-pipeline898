@@ -25,9 +25,6 @@ from pyspark.sql.functions import to_timestamp
 from pyspark.sql.functions import when
 from pyspark.sql.functions import year
 
-
-
-
 from pyspark.sql.window import Window
 
 import urllib.parse
@@ -70,7 +67,7 @@ MOUNT_NAME = "/mnt/mount_AWS_S3"
 # Source url
 SOURCE_URL = "s3n://{0}:{1}@{2}".format(ACCESS_KEY, ENCODED_SECRET_KEY, AWS_S3_BUCKET)
 # Mount the drive
-dbutils.fs.mount(SOURCE_URL, MOUNT_NAME)
+## dbutils.fs.mount(SOURCE_URL, MOUNT_NAME)
 
 # COMMAND ----------
 
@@ -129,6 +126,17 @@ display(df_geo)
 display(df_user)
 
 
+
+# COMMAND ----------
+
+pin_columns = df_pin.columns
+print(pin_columns)
+
+geo_columns = df_geo.columns
+print(geo_columns)
+
+user_columns = df_user.columns
+print(user_columns)
 
 # COMMAND ----------
 
