@@ -5,3 +5,4 @@ project_3/
 __pycache__/
 *.pem
 *.txt
+python send_api_request.py
