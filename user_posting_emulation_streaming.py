@@ -53,7 +53,7 @@ class AWSDBConnector:
             raise TypeError(f"Type {obj.__class__.__name__} not serializable")
 
         def stream_send_data_to_stream(stream_name, data):
-            base_invoke_url = "https://pmwzvsclr6.execute-api.us-east-1.amazonaws.com/dev/topics"
+            base_invoke_url = "https://pmwzvsclr6.execute-api.us-east-1.amazonaws.com/dev/streams"
             invoke_url = f"{base_invoke_url}/{stream_name}/record"
             payload = json.dumps({
                 "StreamName": stream_name,

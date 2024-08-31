@@ -31,33 +31,24 @@ class AWSDBConnector:
             self.port = int(data_loaded['PORT'])
             
             print("Credentials loaded sucessfully!!")
-
             return yaml_file
             
     def create_db_connector(self):
-
         engine = sqlalchemy.create_engine(f"mysql+pymysql://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}?charset=utf8mb4")
-            
         return engine
-        
             
     def list_db_tables(self, engine):
-        
         inspector = inspect(engine)
         tables =inspector.get_table_names()
         print("Tables in the database:", tables)
         return tables
     
-       
-
-
     def run_infinite_post_data_loop_method(self,engine):
         while True:
             sleep(random.randrange(0, 2))
             random_row = random.randint(0, 11000)
 
             with engine.connect() as connection:
-
                 pin_string = text(f"SELECT * FROM pinterest_data LIMIT {random_row}, 1")
                 pin_selected_row = connection.execute(pin_string)
                 pin_result = dict(pin_selected_row.fetchone()._mapping)
