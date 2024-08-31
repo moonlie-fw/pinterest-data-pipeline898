@@ -17,13 +17,8 @@ random.seed(100)
 
 class AWSDBConnector:
 
-    def __init__(self, host=None, user=None, password=None, database=None, port=None, engine=None):
-
-        self.host = host
-        self.user = user
-        self.password = password
-        self.database = database
-        self.port = port
+    def __init__(self, yaml_file):
+        self.read_db_creds(yaml_file)
 
     def read_db_creds (self,yaml_file):
             
